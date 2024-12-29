@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md2HTML</title>
+    <script src="marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+        #output {
+            border: 1px solid #ccc;
+            padding: 10px;
+            background-color: #f9f9f9;
+            white-space: pre-wrap; 
+        }
+        button {
+            padding: 10px 15px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<h1>Markdown转换</h1>
+<textarea id="markdown" placeholder="Markdown..."></textarea>
+<button id="convert">转换</button>
+<h2>转换结果</h2>
+<div id="output"></div>
+<script>
+    function updateOutput() {
+             var markdownText = document.getElementById('markdown').value;
+              var htmlOutput = marked(markdownText);
+              document.getElementById('output').innerHTML = htmlOutput;
+    }
+    document.getElementById('convert').addEventListener('click', updateOutput);
+</script>
+</body>
+</html>
